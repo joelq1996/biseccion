@@ -1,0 +1,10 @@
+f = @(x) x.^3-3;
+a = 0;
+b = 4;
+tol = 0.0000001;
+try
+[y,iter] = biseccion(f,a,b,tol);
+fprintf('El valor de corte es y = %f, el numero de iteraciones es %d\n',y,iter);
+catch err
+    fprintf('error: %s\n', err.message)
+end
