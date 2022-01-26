@@ -1,0 +1,29 @@
+    function [y,iter] = biseccion(f,a,b,tol)
+    %{
+    Joel Quintuna
+    f: función a evaluar
+    a y b: valores del intervalo en el que se evaluará si existe una raíz
+    tol: tolerancia máxima en la aproximación
+    y: valor aproximado de la raíz
+    iter: numero de iteraciones realizadas
+    %}
+    iter = 1;
+    
+    if f(a)*f(b)<0
+        while (1)
+            c = (a+b)/2;
+            if abs(f(c))<tol
+                y = c;
+                break;
+            elseif (f(a)*f(c)>0)
+                a = c;
+            else
+                b = c;
+            end
+            iter=iter+1;
+        end
+    else
+        %iter = 0; 
+        error('biseccion: no existe raiz en el intervalo [%d,%d]', a,b);
+    end
+    end    
